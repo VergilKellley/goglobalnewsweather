@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Vergil Kelley">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+<title>Word News & Weather</title>
+
+<!---------------------------------
+		GOOGLE FONTS CDN
+---------------------------------->
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700.900&display=swap" rel="stylesheet">
+
+<!---------------------------------
+		STYLE SHEET FILE
+---------------------------------->
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<!---------------------------------
+		SPLASH PAGE OVERLAY
+---------------------------------->	
+	<div class="overlay2">
+		<h1>Go Global</h1>
+		<span></span>
+	</div>
+
+<!---------------------------------
+	TOP LEFT SIDE TEXT
+---------------------------------->
+	<div class="wrapper">
+		<div class="nav">
+			<div class="logo">
+				<h1>
+					world<br>news
+				</h1>
+			</div>
+
+<!---------------------------------
+	MOBILE TOP LEFT SIDE TEXT
+---------------------------------->
+
+			<div class="logo-mobile">
+				<h1>
+					<span>w<br>o<br>r<br>l<br>d<br><span class="dot" style="height: 15px; width: 15px"></span><br>n<br>e<br>w<br>s</span>
+				</h1>
+			</div>
+
+<!---------------------------------
+	STARS/GALAXY BACKGROUND IMAGE
+---------------------------------->
+
+	<img id="stars" src="images/stars.jpg" alt="milkyway galaxy">
+
+<!---------------------------------
+	NEWS SEARCH BOX
+---------------------------------->
+
+		<div class="container2">
+				<div class="search-news">
+					<h2>Search News</h2>
+				</div>
+				<div class="search-news">
+					<input type="text" name="" id="key" autocomplete="off" placeholder="Enter a keyword">
+				</div>
+				<div class="search-news">
+					<select id="lanSelect">
+						<option value="en">English</option>
+						<option value="ar">Arabic</option>
+						<option value="zh">Chinese</option>
+						<option value="nl">Dutch</option>
+						<option value="fi">Finnish</option>
+						<option value="fr">French</option>
+						<option value="de">German</option>
+						<option value="hi">Hindi</option>
+						<option value="it">Italian</option>
+						<option value="ja">Japanese</option>
+						<option value="ko">Korean</option>
+						<option value="msa">Malay</option>
+						<option value="pt">portuguese</option>
+						<option value="ru">Russian</option>
+						<option value="es">Spanish</option>
+						<option value="vi">Vietnamise</option>
+					</select>
+				</div>
+
+				<div class="news-container">
+					<a href="#news" onclick="fadeInNews()" onclick="clearNewsInput()" class="search-news" id="getPosts">Get News</a>
+				</div>	 
+			</div>
+		</div>
+
+<!---------------------------------
+	GO GLOBAL TEXT
+---------------------------------->
+
+		<div class="text-global">
+			<div class="title">Go Global</div>
+			<p>Get news and current weather conditions from countries around the world.</p>
+		</div>
+
+<!---------------------------------
+	GO GLOBAL TEXT MOBILE
+---------------------------------->
+		<div class="text-mobile">
+			<div class="title-mobile">Go Global</div>
+			<p>Get news and current weather conditions from countries around the world.</p>
+		</div>
+
+<!---------------------------------
+	WEATHER MODAL POP-UP
+---------------------------------->
+
+	<div class="modal" id="modal">
+		<div class="modal-header">
+			<div class="title"> GET CURRENT WEATHER CONDITIONS</div>
+			<button onclick="clearModal();
+			"data-close-button class="close-button">&times;</button>
+		</div>
+		<div class="modal-body">
+
+			<div class="app-wrap">
+				<div class="overlay">
+				<div class="weather-info" >
+					<div class="weatherToolTip" data-tooltip="Enter a city name and country abrreviation, example: Chicago, US.">
+						<input id="cityName" type="text" autocomplete="off"  class="search-box" placeholder="Chicago, US">
+					</div>
+
+<!---------------------------------
+	WEATHER MODAL POP-UP
+---------------------------------->
+
+					<div class="city-date-temp">
+						<div class="city"></div>
+						<div class="date"></div>	
+						<div class="temp"><span id="tempSpan"></span></div>
+						<div class="weather"></div>
+						<div class="hi-low"></div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+<!---------------------------------
+	WEATHER OVERLAY
+---------------------------------->
+
+		<div id="overlay"></div>
+
+<!---------------------------------
+	GET WEATHER BUTTON
+---------------------------------->
+
+		<div class="weatherBtn">
+			<button class="open-btn" data-modal-target="#modal">GET WEATHER</button>
+		</div>
+
+<!---------------------------------
+	ROTATING ELLIPSE
+---------------------------------->
+
+		<div class="ellipse-container">
+			<!--<div class="ellipse thin"></div>-->
+			<div class="ellipse thick"></div>
+			<div class="ellipse blue"></div>	
+
+<!---------------------------------
+	CIRCLES ON ROTATING GLOBE
+---------------------------------->
+
+			<div class="circle1"><span>World News</span></div>	
+			<div class="circle2"><span>Weather Around The Globe </span></div>
+
+<!---------------------------------
+	ROTATING GLOBE IMAGE
+---------------------------------->
+
+			<div id="earth"></div>
+		</div>	
+	</div>
+
+<!---------------------------------
+	MOBILE ELLIPSE
+---------------------------------->
+
+		<div class="ellipse-container-mobile">
+			<div class="ellipse-mobile thick"></div>
+			<div class="ellipse-mobile blue-mobile"></div>
+		</div>
+
+<!---------------------------------
+	MOBILE ROTATING EARTH IMAGE
+---------------------------------->
+
+		<div id="earth-mobile"></div>
+
+<!---------------------------------
+	MOBILE NEWS SEARCH BOX
+---------------------------------->
+
+		<div class="container2-mobile">
+				<div class="search-news">
+					<h2>Search News</h2>
+				</div>
+				<div class="search-news">
+					<input type="text" name="" id="keyMobile" autocomplete="off" placeholder="Enter keyword">
+				</div>
+				<div class="search-news">
+					<select id="lanSelectMobile">
+						<option class="optionMobile" value="en">English</option>
+						<option class="optionMobile" value="ar">Arabic</option>
+						<option class="optionMobile" value="zh">Chinese</option>
+						<option class="optionMobile" value="nl">Dutch</option>
+						<option class="optionMobile" value="fi">Finnish</option>
+						<option class="optionMobile" value="fr">French</option>
+						<option class="optionMobile" value="de">German</option>
+						<option class="optionMobile" value="hi">Hindi</option>
+						<option class="optionMobile" value="it">Italian</option>
+						<option class="optionMobile" value="ja">Japanese</option>
+						<option class="optionMobile" value="ko">Korean</option>
+						<option class="optionMobile" value="msa">Malay</option>
+						<option class="optionMobile" value="pt">portuguese</option>
+						<option class="optionMobile" value="ru">Russian</option>
+						<option class="optionMobile" value="es">Spanish</option>
+						<option class="optionMobile" value="vi">Vietnamise</option>
+					</select>
+				</div>
+
+				<div class="news-container">
+					<a href="#news" onclick="fadeInNews()" onclick="clearNewsInput()" class="search-news" id="getPostsMobile">Get News</a>
+				</div>	 
+			</div>
+
+
+<!---------------------------------
+	NEWS API OUTPUT
+---------------------------------->
+
+	<main>
+		<div id="news"></div>
+		<div class="output-wrapper">
+			<div id="output"></div>
+		 </div>
+	</main>
+
+<!---------------------------------
+			FOOTER
+---------------------------------->
+
+	<footer >
+		<p>Website designed by<a href="https://vergildkelley.com/" target="_blank">
+		<span style="color: #fff">Vergil D. Kelley Web Desing & Development</span></a> &copy 2020 All other trademarks, service marks and trade names referenced in this material are the property of their respective owner</p>
+	</footer>
+
+<!---------------------------------
+			TweenMax CDN
+---------------------------------->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js">	
+		</script>
+
+<!---------------------------------
+			JQUERY CDN
+---------------------------------->
+
+		<script
+  			src="https://code.jquery.com/jquery-3.5.1.min.js"
+  			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  			crossorigin="anonymous">
+  		</script>
+
+ <!---------------------------------
+		MAIN JAVASCRIPT FILE
+---------------------------------->
+
+		<script src="js/main.js"></script>
+
+</body>
+</html>
